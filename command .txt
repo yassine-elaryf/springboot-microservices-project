@@ -1,0 +1,17 @@
+RabbitMQ
+rabbitmq-plugins.bat enable rabbitmq_management
+rabbitmq-service.bat stop
+user guest
+pass guest
+**********************************************
+vault server -dev
+export VAULT_ADDR='http://127.0.0.1:8200'
+export VAULT_TOKEN="s.XmpNPoi9sRhYtdKHaQhkHP6x"
+vault kv put secret/order-service @order-service.json
+vault kv get secret/order-service
+vault kv put secret/product-service @product-service.json
+vault kv get secret/product-service
+
+
+
+
